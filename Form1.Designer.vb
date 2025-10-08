@@ -23,10 +23,12 @@ Partial Class Form1
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.GB_Produto = New System.Windows.Forms.GroupBox()
-        Me.LB_Nome = New System.Windows.Forms.Label()
         Me.TX_NomeProduto = New System.Windows.Forms.TextBox()
+        Me.LB_Nome = New System.Windows.Forms.Label()
         Me.BT_Cadastrar = New System.Windows.Forms.Button()
+        Me.DG_Produtos = New System.Windows.Forms.DataGridView()
         Me.GB_Produto.SuspendLayout()
+        CType(Me.DG_Produtos, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'GB_Produto
@@ -40,6 +42,13 @@ Partial Class Form1
         Me.GB_Produto.TabStop = False
         Me.GB_Produto.Text = "Cadastro de Produto"
         '
+        'TX_NomeProduto
+        '
+        Me.TX_NomeProduto.Location = New System.Drawing.Point(50, 17)
+        Me.TX_NomeProduto.Name = "TX_NomeProduto"
+        Me.TX_NomeProduto.Size = New System.Drawing.Size(217, 20)
+        Me.TX_NomeProduto.TabIndex = 1
+        '
         'LB_Nome
         '
         Me.LB_Nome.AutoSize = True
@@ -50,18 +59,11 @@ Partial Class Form1
         Me.LB_Nome.TabIndex = 0
         Me.LB_Nome.Text = "Nome:"
         '
-        'TX_NomeProduto
-        '
-        Me.TX_NomeProduto.Location = New System.Drawing.Point(50, 17)
-        Me.TX_NomeProduto.Name = "TX_NomeProduto"
-        Me.TX_NomeProduto.Size = New System.Drawing.Size(217, 20)
-        Me.TX_NomeProduto.TabIndex = 1
-        '
         'BT_Cadastrar
         '
         Me.BT_Cadastrar.BackColor = System.Drawing.SystemColors.ControlLight
         Me.BT_Cadastrar.ForeColor = System.Drawing.Color.CornflowerBlue
-        Me.BT_Cadastrar.Location = New System.Drawing.Point(677, 389)
+        Me.BT_Cadastrar.Location = New System.Drawing.Point(643, 38)
         Me.BT_Cadastrar.Name = "BT_Cadastrar"
         Me.BT_Cadastrar.Size = New System.Drawing.Size(111, 49)
         Me.BT_Cadastrar.TabIndex = 1
@@ -69,17 +71,28 @@ Partial Class Form1
         Me.BT_Cadastrar.UseMnemonic = False
         Me.BT_Cadastrar.UseVisualStyleBackColor = False
         '
+        'DG_Produtos
+        '
+        Me.DG_Produtos.AllowUserToAddRows = False
+        Me.DG_Produtos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.DG_Produtos.Location = New System.Drawing.Point(10, 218)
+        Me.DG_Produtos.Name = "DG_Produtos"
+        Me.DG_Produtos.Size = New System.Drawing.Size(778, 220)
+        Me.DG_Produtos.TabIndex = 2
+        '
         'Form1
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(800, 450)
+        Me.Controls.Add(Me.DG_Produtos)
         Me.Controls.Add(Me.BT_Cadastrar)
         Me.Controls.Add(Me.GB_Produto)
         Me.Name = "Form1"
         Me.Text = "Cadastro de  Produtos"
         Me.GB_Produto.ResumeLayout(False)
         Me.GB_Produto.PerformLayout()
+        CType(Me.DG_Produtos, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
@@ -88,4 +101,5 @@ Partial Class Form1
     Friend WithEvents TX_NomeProduto As TextBox
     Friend WithEvents LB_Nome As Label
     Friend WithEvents BT_Cadastrar As Button
+    Friend WithEvents DG_Produtos As DataGridView
 End Class
