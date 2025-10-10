@@ -23,6 +23,8 @@ Partial Class FrmCadastroProduto
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.GB_Produto = New System.Windows.Forms.GroupBox()
+        Me.TX_QTD = New System.Windows.Forms.TextBox()
+        Me.LB_Quantidadde = New System.Windows.Forms.Label()
         Me.TX_ProdutoId = New System.Windows.Forms.TextBox()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.TX_NomeProduto = New System.Windows.Forms.TextBox()
@@ -31,12 +33,18 @@ Partial Class FrmCadastroProduto
         Me.DG_Produtos = New System.Windows.Forms.DataGridView()
         Me.BT_Limpar = New System.Windows.Forms.Button()
         Me.BT_Excluir = New System.Windows.Forms.Button()
+        Me.LB_Preço = New System.Windows.Forms.Label()
+        Me.TX_Preco = New System.Windows.Forms.TextBox()
         Me.GB_Produto.SuspendLayout()
         CType(Me.DG_Produtos, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'GB_Produto
         '
+        Me.GB_Produto.Controls.Add(Me.TX_Preco)
+        Me.GB_Produto.Controls.Add(Me.LB_Preço)
+        Me.GB_Produto.Controls.Add(Me.TX_QTD)
+        Me.GB_Produto.Controls.Add(Me.LB_Quantidadde)
         Me.GB_Produto.Controls.Add(Me.TX_ProdutoId)
         Me.GB_Produto.Controls.Add(Me.Label1)
         Me.GB_Produto.Controls.Add(Me.TX_NomeProduto)
@@ -47,6 +55,24 @@ Partial Class FrmCadastroProduto
         Me.GB_Produto.TabIndex = 0
         Me.GB_Produto.TabStop = False
         Me.GB_Produto.Text = "Cadastro de Produto"
+        '
+        'TX_QTD
+        '
+        Me.TX_QTD.Location = New System.Drawing.Point(50, 45)
+        Me.TX_QTD.Name = "TX_QTD"
+        Me.TX_QTD.Size = New System.Drawing.Size(60, 20)
+        Me.TX_QTD.TabIndex = 5
+        '
+        'LB_Quantidadde
+        '
+        Me.LB_Quantidadde.AutoSize = True
+        Me.LB_Quantidadde.ForeColor = System.Drawing.Color.DarkBlue
+        Me.LB_Quantidadde.Location = New System.Drawing.Point(6, 48)
+        Me.LB_Quantidadde.Name = "LB_Quantidadde"
+        Me.LB_Quantidadde.Size = New System.Drawing.Size(33, 13)
+        Me.LB_Quantidadde.TabIndex = 4
+        Me.LB_Quantidadde.Text = "QTD:"
+        Me.LB_Quantidadde.UseMnemonic = False
         '
         'TX_ProdutoId
         '
@@ -129,7 +155,25 @@ Partial Class FrmCadastroProduto
         Me.BT_Excluir.UseMnemonic = False
         Me.BT_Excluir.UseVisualStyleBackColor = False
         '
-        'Form1
+        'LB_Preço
+        '
+        Me.LB_Preço.AutoSize = True
+        Me.LB_Preço.ForeColor = System.Drawing.Color.DarkBlue
+        Me.LB_Preço.Location = New System.Drawing.Point(126, 48)
+        Me.LB_Preço.Name = "LB_Preço"
+        Me.LB_Preço.Size = New System.Drawing.Size(38, 13)
+        Me.LB_Preço.TabIndex = 6
+        Me.LB_Preço.Text = "Preço:"
+        Me.LB_Preço.UseMnemonic = False
+        '
+        'TX_Preco
+        '
+        Me.TX_Preco.Location = New System.Drawing.Point(170, 48)
+        Me.TX_Preco.Name = "TX_Preco"
+        Me.TX_Preco.Size = New System.Drawing.Size(60, 20)
+        Me.TX_Preco.TabIndex = 7
+        '
+        'FrmCadastroProduto
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
@@ -139,7 +183,7 @@ Partial Class FrmCadastroProduto
         Me.Controls.Add(Me.DG_Produtos)
         Me.Controls.Add(Me.BT_Salvar)
         Me.Controls.Add(Me.GB_Produto)
-        Me.Name = "Form1"
+        Me.Name = "FrmCadastroProduto"
         Me.Text = "Cadastro de  Produtos"
         Me.GB_Produto.ResumeLayout(False)
         Me.GB_Produto.PerformLayout()
@@ -157,4 +201,8 @@ Partial Class FrmCadastroProduto
     Friend WithEvents Label1 As Label
     Friend WithEvents BT_Limpar As Button
     Friend WithEvents BT_Excluir As Button
+    Friend WithEvents TX_QTD As TextBox
+    Friend WithEvents LB_Quantidadde As Label
+    Friend WithEvents LB_Preço As Label
+    Friend WithEvents TX_Preco As TextBox
 End Class

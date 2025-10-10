@@ -14,11 +14,13 @@ Public Class FrmCadastroProduto
                 Using conn As New MySqlConnection(connectionString)
                     conn.Open()
 
-                    Dim sql As String = "INSERT INTO produtos (nome, data_cadastro) VALUES (@nome, @data_cadastro);"
+                    Dim sql As String = "INSERT INTO produtos (nome, quantidade, preco_custo, data_cadastro) VALUES (@nome, @quantidade, @preco_custo, @data_cadastro);"
                     Dim cmd As New MySqlCommand(sql, conn)
 
                     cmd.Parameters.AddWithValue("@nome", TX_NomeProduto.Text)
                     cmd.Parameters.AddWithValue("@data_cadastro", DateTime.Now)
+                    cmd.Parameters.AddWithValue("@quantidade", If(String.IsNullOrWhiteSpace(TX_QTD.Text), 0, Convert.ToInt32(TX_QTD.Text)))
+                    cmd.Parameters.AddWithValue("@preco_custo", If(String.IsNullOrWhiteSpace(TX_Preco.Text), 0D, Convert.ToDecimal(TX_Preco.Text)))
 
                     cmd.ExecuteNonQuery()
 
@@ -36,11 +38,13 @@ Public Class FrmCadastroProduto
                 Using conn As New MySqlConnection(connectionString)
                     conn.Open()
 
-                    Dim sql As String = "UPDATE produtos SET nome = @nome WHERE id = @id;"
+                    Dim sql As String = "UPDATE produtos SET nome = @nome, quantidade = @quantidade, preco_custo = @preco_custo WHERE id = @id;"
                     Dim cmd As New MySqlCommand(sql, conn)
 
                     cmd.Parameters.AddWithValue("@nome", TX_NomeProduto.Text)
                     cmd.Parameters.AddWithValue("@id", Convert.ToInt32(TX_ProdutoId.Text))
+                    cmd.Parameters.AddWithValue("@quantidade", Convert.ToInt32(TX_QTD.Text))
+                    cmd.Parameters.AddWithValue("@preco_custo", Convert.ToDecimal(TX_Preco.Text))
 
                     cmd.ExecuteNonQuery()
 
@@ -61,7 +65,7 @@ Public Class FrmCadastroProduto
             Using conn As New MySqlConnection(connectionString)
                 conn.Open()
 
-                Dim sql As String = "SELECT ID, nome, data_cadastro FROM produtos ORDER BY id;"
+                Dim sql As String = "SELECT ID, nome, quantidade, preco_custo, data_cadastro FROM produtos ORDER BY id;"
 
                 Dim da As New MySqlDataAdapter(sql, conn)
                 Dim dt As New DataTable()
@@ -83,6 +87,8 @@ Public Class FrmCadastroProduto
     Private Sub BT_Limpar_Click(sender As Object, e As EventArgs) Handles BT_Limpar.Click
         TX_ProdutoId.Clear()
         TX_NomeProduto.Clear()
+        TX_QTD.Clear()
+        TX_Preco.Clear()
         TX_NomeProduto.Focus()
     End Sub
 
@@ -93,6 +99,8 @@ Public Class FrmCadastroProduto
 
             TX_NomeProduto.Text = linhaSelecionada.Cells("nome").Value.ToString()
             TX_ProdutoId.Text = linhaSelecionada.Cells("ID").Value.ToString()
+            TX_QTD.Text = linhaSelecionada.Cells("quantidade").Value.ToString()
+            TX_Preco.Text = linhaSelecionada.Cells("preco_custo").Value.ToString()
 
 
         End If
