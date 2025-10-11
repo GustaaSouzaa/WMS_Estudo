@@ -23,6 +23,8 @@ Partial Class FrmCadastroProduto
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.GB_Produto = New System.Windows.Forms.GroupBox()
+        Me.TX_Preco = New System.Windows.Forms.TextBox()
+        Me.LB_Preço = New System.Windows.Forms.Label()
         Me.TX_QTD = New System.Windows.Forms.TextBox()
         Me.LB_Quantidadde = New System.Windows.Forms.Label()
         Me.TX_ProdutoId = New System.Windows.Forms.TextBox()
@@ -33,10 +35,18 @@ Partial Class FrmCadastroProduto
         Me.DG_Produtos = New System.Windows.Forms.DataGridView()
         Me.BT_Limpar = New System.Windows.Forms.Button()
         Me.BT_Excluir = New System.Windows.Forms.Button()
-        Me.LB_Preço = New System.Windows.Forms.Label()
-        Me.TX_Preco = New System.Windows.Forms.TextBox()
+        Me.GroupBox1 = New System.Windows.Forms.GroupBox()
+        Me.LB_apto = New System.Windows.Forms.Label()
+        Me.CB_apto = New System.Windows.Forms.ComboBox()
+        Me.LB_nivel = New System.Windows.Forms.Label()
+        Me.CB_nivel = New System.Windows.Forms.ComboBox()
+        Me.LB_modulo = New System.Windows.Forms.Label()
+        Me.CB_modulo = New System.Windows.Forms.ComboBox()
+        Me.LB_Rua = New System.Windows.Forms.Label()
+        Me.CB_Rua = New System.Windows.Forms.ComboBox()
         Me.GB_Produto.SuspendLayout()
         CType(Me.DG_Produtos, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.GroupBox1.SuspendLayout()
         Me.SuspendLayout()
         '
         'GB_Produto
@@ -55,6 +65,24 @@ Partial Class FrmCadastroProduto
         Me.GB_Produto.TabIndex = 0
         Me.GB_Produto.TabStop = False
         Me.GB_Produto.Text = "Cadastro de Produto"
+        '
+        'TX_Preco
+        '
+        Me.TX_Preco.Location = New System.Drawing.Point(170, 48)
+        Me.TX_Preco.Name = "TX_Preco"
+        Me.TX_Preco.Size = New System.Drawing.Size(60, 20)
+        Me.TX_Preco.TabIndex = 7
+        '
+        'LB_Preço
+        '
+        Me.LB_Preço.AutoSize = True
+        Me.LB_Preço.ForeColor = System.Drawing.Color.DarkBlue
+        Me.LB_Preço.Location = New System.Drawing.Point(126, 48)
+        Me.LB_Preço.Name = "LB_Preço"
+        Me.LB_Preço.Size = New System.Drawing.Size(38, 13)
+        Me.LB_Preço.TabIndex = 6
+        Me.LB_Preço.Text = "Preço:"
+        Me.LB_Preço.UseMnemonic = False
         '
         'TX_QTD
         '
@@ -113,9 +141,9 @@ Partial Class FrmCadastroProduto
         '
         Me.BT_Salvar.BackColor = System.Drawing.SystemColors.ControlLight
         Me.BT_Salvar.ForeColor = System.Drawing.Color.CornflowerBlue
-        Me.BT_Salvar.Location = New System.Drawing.Point(643, 38)
+        Me.BT_Salvar.Location = New System.Drawing.Point(571, 180)
         Me.BT_Salvar.Name = "BT_Salvar"
-        Me.BT_Salvar.Size = New System.Drawing.Size(111, 49)
+        Me.BT_Salvar.Size = New System.Drawing.Size(69, 25)
         Me.BT_Salvar.TabIndex = 1
         Me.BT_Salvar.Text = "Salvar"
         Me.BT_Salvar.UseMnemonic = False
@@ -135,11 +163,11 @@ Partial Class FrmCadastroProduto
         '
         Me.BT_Limpar.BackColor = System.Drawing.SystemColors.ControlLight
         Me.BT_Limpar.ForeColor = System.Drawing.Color.CornflowerBlue
-        Me.BT_Limpar.Location = New System.Drawing.Point(657, 93)
+        Me.BT_Limpar.Location = New System.Drawing.Point(715, 180)
         Me.BT_Limpar.Name = "BT_Limpar"
-        Me.BT_Limpar.Size = New System.Drawing.Size(83, 32)
+        Me.BT_Limpar.Size = New System.Drawing.Size(65, 24)
         Me.BT_Limpar.TabIndex = 3
-        Me.BT_Limpar.Text = "Novo / Limpar"
+        Me.BT_Limpar.Text = "Novo"
         Me.BT_Limpar.UseMnemonic = False
         Me.BT_Limpar.UseVisualStyleBackColor = False
         '
@@ -147,37 +175,117 @@ Partial Class FrmCadastroProduto
         '
         Me.BT_Excluir.BackColor = System.Drawing.Color.MistyRose
         Me.BT_Excluir.ForeColor = System.Drawing.Color.OrangeRed
-        Me.BT_Excluir.Location = New System.Drawing.Point(10, 189)
+        Me.BT_Excluir.Location = New System.Drawing.Point(646, 181)
         Me.BT_Excluir.Name = "BT_Excluir"
-        Me.BT_Excluir.Size = New System.Drawing.Size(80, 23)
+        Me.BT_Excluir.Size = New System.Drawing.Size(63, 23)
         Me.BT_Excluir.TabIndex = 4
         Me.BT_Excluir.Text = "Excluir"
         Me.BT_Excluir.UseMnemonic = False
         Me.BT_Excluir.UseVisualStyleBackColor = False
         '
-        'LB_Preço
+        'GroupBox1
         '
-        Me.LB_Preço.AutoSize = True
-        Me.LB_Preço.ForeColor = System.Drawing.Color.DarkBlue
-        Me.LB_Preço.Location = New System.Drawing.Point(126, 48)
-        Me.LB_Preço.Name = "LB_Preço"
-        Me.LB_Preço.Size = New System.Drawing.Size(38, 13)
-        Me.LB_Preço.TabIndex = 6
-        Me.LB_Preço.Text = "Preço:"
-        Me.LB_Preço.UseMnemonic = False
+        Me.GroupBox1.Controls.Add(Me.LB_apto)
+        Me.GroupBox1.Controls.Add(Me.CB_apto)
+        Me.GroupBox1.Controls.Add(Me.LB_nivel)
+        Me.GroupBox1.Controls.Add(Me.CB_nivel)
+        Me.GroupBox1.Controls.Add(Me.LB_modulo)
+        Me.GroupBox1.Controls.Add(Me.CB_modulo)
+        Me.GroupBox1.Controls.Add(Me.LB_Rua)
+        Me.GroupBox1.Controls.Add(Me.CB_Rua)
+        Me.GroupBox1.Location = New System.Drawing.Point(10, 105)
+        Me.GroupBox1.Name = "GroupBox1"
+        Me.GroupBox1.Size = New System.Drawing.Size(403, 78)
+        Me.GroupBox1.TabIndex = 5
+        Me.GroupBox1.TabStop = False
+        Me.GroupBox1.Text = "Endereço Estoque"
         '
-        'TX_Preco
+        'LB_apto
         '
-        Me.TX_Preco.Location = New System.Drawing.Point(170, 48)
-        Me.TX_Preco.Name = "TX_Preco"
-        Me.TX_Preco.Size = New System.Drawing.Size(60, 20)
-        Me.TX_Preco.TabIndex = 7
+        Me.LB_apto.AutoSize = True
+        Me.LB_apto.ForeColor = System.Drawing.Color.DarkBlue
+        Me.LB_apto.Location = New System.Drawing.Point(195, 35)
+        Me.LB_apto.Name = "LB_apto"
+        Me.LB_apto.Size = New System.Drawing.Size(32, 13)
+        Me.LB_apto.TabIndex = 14
+        Me.LB_apto.Text = "Apto:"
+        Me.LB_apto.UseMnemonic = False
+        '
+        'CB_apto
+        '
+        Me.CB_apto.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.CB_apto.FormattingEnabled = True
+        Me.CB_apto.Location = New System.Drawing.Point(193, 51)
+        Me.CB_apto.Name = "CB_apto"
+        Me.CB_apto.Size = New System.Drawing.Size(55, 21)
+        Me.CB_apto.TabIndex = 13
+        '
+        'LB_nivel
+        '
+        Me.LB_nivel.AutoSize = True
+        Me.LB_nivel.ForeColor = System.Drawing.Color.DarkBlue
+        Me.LB_nivel.Location = New System.Drawing.Point(134, 35)
+        Me.LB_nivel.Name = "LB_nivel"
+        Me.LB_nivel.Size = New System.Drawing.Size(36, 13)
+        Me.LB_nivel.TabIndex = 12
+        Me.LB_nivel.Text = "Nível:"
+        Me.LB_nivel.UseMnemonic = False
+        '
+        'CB_nivel
+        '
+        Me.CB_nivel.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.CB_nivel.FormattingEnabled = True
+        Me.CB_nivel.Location = New System.Drawing.Point(132, 51)
+        Me.CB_nivel.Name = "CB_nivel"
+        Me.CB_nivel.Size = New System.Drawing.Size(55, 21)
+        Me.CB_nivel.TabIndex = 11
+        '
+        'LB_modulo
+        '
+        Me.LB_modulo.AutoSize = True
+        Me.LB_modulo.ForeColor = System.Drawing.Color.DarkBlue
+        Me.LB_modulo.Location = New System.Drawing.Point(73, 35)
+        Me.LB_modulo.Name = "LB_modulo"
+        Me.LB_modulo.Size = New System.Drawing.Size(45, 13)
+        Me.LB_modulo.TabIndex = 10
+        Me.LB_modulo.Text = "Módulo:"
+        Me.LB_modulo.UseMnemonic = False
+        '
+        'CB_modulo
+        '
+        Me.CB_modulo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.CB_modulo.FormattingEnabled = True
+        Me.CB_modulo.Location = New System.Drawing.Point(71, 51)
+        Me.CB_modulo.Name = "CB_modulo"
+        Me.CB_modulo.Size = New System.Drawing.Size(55, 21)
+        Me.CB_modulo.TabIndex = 9
+        '
+        'LB_Rua
+        '
+        Me.LB_Rua.AutoSize = True
+        Me.LB_Rua.ForeColor = System.Drawing.Color.DarkBlue
+        Me.LB_Rua.Location = New System.Drawing.Point(12, 35)
+        Me.LB_Rua.Name = "LB_Rua"
+        Me.LB_Rua.Size = New System.Drawing.Size(27, 13)
+        Me.LB_Rua.TabIndex = 8
+        Me.LB_Rua.Text = "Rua"
+        Me.LB_Rua.UseMnemonic = False
+        '
+        'CB_Rua
+        '
+        Me.CB_Rua.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.CB_Rua.FormattingEnabled = True
+        Me.CB_Rua.Location = New System.Drawing.Point(10, 51)
+        Me.CB_Rua.Name = "CB_Rua"
+        Me.CB_Rua.Size = New System.Drawing.Size(55, 21)
+        Me.CB_Rua.TabIndex = 0
         '
         'FrmCadastroProduto
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(800, 450)
+        Me.Controls.Add(Me.GroupBox1)
         Me.Controls.Add(Me.BT_Excluir)
         Me.Controls.Add(Me.BT_Limpar)
         Me.Controls.Add(Me.DG_Produtos)
@@ -188,6 +296,8 @@ Partial Class FrmCadastroProduto
         Me.GB_Produto.ResumeLayout(False)
         Me.GB_Produto.PerformLayout()
         CType(Me.DG_Produtos, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.GroupBox1.ResumeLayout(False)
+        Me.GroupBox1.PerformLayout()
         Me.ResumeLayout(False)
 
     End Sub
@@ -205,4 +315,13 @@ Partial Class FrmCadastroProduto
     Friend WithEvents LB_Quantidadde As Label
     Friend WithEvents LB_Preço As Label
     Friend WithEvents TX_Preco As TextBox
+    Friend WithEvents GroupBox1 As GroupBox
+    Friend WithEvents CB_Rua As ComboBox
+    Friend WithEvents LB_Rua As Label
+    Friend WithEvents LB_apto As Label
+    Friend WithEvents CB_apto As ComboBox
+    Friend WithEvents LB_nivel As Label
+    Friend WithEvents CB_nivel As ComboBox
+    Friend WithEvents LB_modulo As Label
+    Friend WithEvents CB_modulo As ComboBox
 End Class
