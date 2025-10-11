@@ -25,6 +25,7 @@ Partial Class FrmPrincipal
         Me.MenuStrip1 = New System.Windows.Forms.MenuStrip()
         Me.CadastrosToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ProdutosToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.EndereçosToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.MenuStrip1.SuspendLayout()
         Me.SuspendLayout()
         '
@@ -39,7 +40,7 @@ Partial Class FrmPrincipal
         '
         'CadastrosToolStripMenuItem
         '
-        Me.CadastrosToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ProdutosToolStripMenuItem})
+        Me.CadastrosToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ProdutosToolStripMenuItem, Me.EndereçosToolStripMenuItem})
         Me.CadastrosToolStripMenuItem.Name = "CadastrosToolStripMenuItem"
         Me.CadastrosToolStripMenuItem.Size = New System.Drawing.Size(71, 20)
         Me.CadastrosToolStripMenuItem.Text = "Cadastros"
@@ -49,6 +50,12 @@ Partial Class FrmPrincipal
         Me.ProdutosToolStripMenuItem.Name = "ProdutosToolStripMenuItem"
         Me.ProdutosToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
         Me.ProdutosToolStripMenuItem.Text = "Produtos"
+        '
+        'EndereçosToolStripMenuItem
+        '
+        Me.EndereçosToolStripMenuItem.Name = "EndereçosToolStripMenuItem"
+        Me.EndereçosToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
+        Me.EndereçosToolStripMenuItem.Text = "Endereços"
         '
         'FrmPrincipal
         '
@@ -70,4 +77,5 @@ Partial Class FrmPrincipal
     Friend WithEvents MenuStrip1 As MenuStrip
     Friend WithEvents CadastrosToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents ProdutosToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents EndereçosToolStripMenuItem As ToolStripMenuItem
 End Class

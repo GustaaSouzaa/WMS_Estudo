@@ -132,6 +132,12 @@
       <DependentUpon>FrmCadastroProduto.vb</DependentUpon>
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="FrmCadEndereco.Designer.vb">
+      <DependentUpon>FrmCadEndereco.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FrmCadEndereco.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="FrmPrincipal.Designer.vb">
       <DependentUpon>FrmPrincipal.vb</DependentUpon>
     </Compile>
@@ -158,6 +164,9 @@
   <ItemGroup>
     <EmbeddedResource Include="FrmCadastroProduto.resx">
       <DependentUpon>FrmCadastroProduto.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmCadEndereco.resx">
+      <DependentUpon>FrmCadEndereco.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmPrincipal.resx">
       <DependentUpon>FrmPrincipal.vb</DependentUpon>

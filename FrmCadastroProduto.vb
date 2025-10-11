@@ -145,6 +145,16 @@ Public Class FrmCadastroProduto
             TX_NomeProduto.Focus()
             Return False
         End If
+        If Integer.TryParse(TX_QTD.Text, Nothing) = False OrElse Convert.ToInt32(TX_QTD.Text) < 0 Then
+            MessageBox.Show("A quantidade deve ser um número inteiro não negativo.")
+            TX_QTD.Focus()
+            Return False
+        End If
+        If Decimal.TryParse(TX_Preco.Text, Nothing) = False OrElse Convert.ToDecimal(TX_Preco.Text) < 0D Then
+            MessageBox.Show("O preço deve ser um número decimal não negativo.")
+            TX_Preco.Focus()
+            Return False
+        End If
         Return True
     End Function
 End Class
