@@ -20,4 +20,9 @@
     Private Sub EndereçosToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles EndereçosToolStripMenuItem.Click
         AbrirFormularioFilho(Of FrmCadEndereco)()
     End Sub
+
+    Private Sub CategoriaToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles CategoriaToolStripMenuItem.Click
+        AbrirFormularioFilho(Of FrmCadastroCategoria)()
+
+    End Sub
 End Class

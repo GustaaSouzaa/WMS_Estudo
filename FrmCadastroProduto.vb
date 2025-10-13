@@ -281,12 +281,10 @@ Public Class FrmCadastroProduto
 
     Private Sub carregarEnderecoNosCombos(idDoEndereco As Integer)
         Try
-            ' --- ETAPA 1: DESLIGAMOS OS "ALARMES" (EVENTOS) ---
             RemoveHandler CB_Rua.SelectedIndexChanged, AddressOf CB_Rua_SelectedIndexChanged
             RemoveHandler CB_modulo.SelectedIndexChanged, AddressOf CB_modulo_SelectedIndexChanged
             RemoveHandler CB_nivel.SelectedIndexChanged, AddressOf CB_nivel_SelectedIndexChanged
 
-            ' --- ETAPA 2: BUSCAMOS OS DADOS DO ENDEREÇO COMPLETO ---
             Using conn As New MySqlConnection(connectionString)
                 conn.Open()
                 Dim sql As String = "SELECT rua, modulo, nivel, apartamento FROM enderecos WHERE id = @id LIMIT 1;"
@@ -295,25 +293,18 @@ Public Class FrmCadastroProduto
 
                 Using reader As MySqlDataReader = cmd.ExecuteReader()
                     If reader.Read() Then
-                        ' Pegamos todos os valores do banco primeiro
                         Dim rua As String = reader("rua").ToString()
                         Dim modulo As Integer = Convert.ToInt32(reader("modulo"))
                         Dim nivel As Integer = Convert.ToInt32(reader("nivel"))
                         Dim apartamento As Integer = Convert.ToInt32(reader("apartamento"))
 
-                        ' --- ETAPA 3: EXECUTAMOS A CASCATA MANUALMENTE E NA ORDEM CERTA ---
-                        ' 1. Define a Rua (não dispara evento)
                         CB_Rua.SelectedValue = rua
 
-                        ' 2. Carrega os Módulos e DEPOIS define o valor
                         CarregarModulos(rua)
                         CB_modulo.SelectedValue = modulo
-
-                        ' 3. Carrega os Níveis e DEPOIS define o valor
                         CarregarNiveis(rua, modulo)
                         CB_nivel.SelectedValue = nivel
 
-                        ' 4. Carrega os Apartamentos e DEPOIS define o valor
                         CarregarApartamentos(rua, modulo, nivel)
                         CB_apto.SelectedValue = apartamento
                     Else
@@ -325,8 +316,6 @@ Public Class FrmCadastroProduto
         Catch ex As Exception
             MessageBox.Show("Ocorreu uma falha ao carregar o endereço do produto." & vbCrLf & "Erro: " & ex.Message, "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error)
         Finally
-            ' --- ETAPA 4: RELIGAMOS OS "ALARMES" (EVENTOS) ---
-            ' O bloco Finally garante que isso aconteça MESMO SE ocorrer um erro.
             AddHandler CB_Rua.SelectedIndexChanged, AddressOf CB_Rua_SelectedIndexChanged
             AddHandler CB_modulo.SelectedIndexChanged, AddressOf CB_modulo_SelectedIndexChanged
             AddHandler CB_nivel.SelectedIndexChanged, AddressOf CB_nivel_SelectedIndexChanged
