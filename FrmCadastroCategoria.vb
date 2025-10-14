@@ -11,7 +11,7 @@ Public Class FrmCadastroCategoria
     Private Sub carregargrid()
         Try
             Using conn As New MySqlConnection(connectionString)
-                Dim sql As String = "SELECT id, nome FROM categorias ORDER BY nome;"
+                Dim sql As String = "SELECT id, nome FROM categoria ORDER BY nome;"
                 Dim da As New MySqlDataAdapter(sql, conn)
                 Dim dt As New DataTable()
                 da.Fill(dt)
@@ -42,13 +42,13 @@ Public Class FrmCadastroCategoria
                 Dim cmd As MySqlCommand
 
                 If String.IsNullOrEmpty(TX_idCategoria.Text) Then
-                    Dim sql As String = "INSERT INTO categorias (nome) VALUES (@nome);"
+                    Dim sql As String = "INSERT INTO categoria (nome) VALUES (@nome);"
                     cmd = New MySqlCommand(sql, conn)
                     cmd.Parameters.AddWithValue("@nome", TX_NomeCategoria.Text)
                     cmd.ExecuteNonQuery()
                     MessageBox.Show("Categoria cadastrada com sucesso!")
                 Else
-                    Dim sql As String = "UPDATE categorias SET nome = @nome WHERE id = @id;"
+                    Dim sql As String = "UPDATE categoria SET nome = @nome WHERE id = @id;"
                     cmd = New MySqlCommand(sql, conn)
                     cmd.Parameters.AddWithValue("@id", Convert.ToInt32(TX_idCategoria.Text))
                     cmd.Parameters.AddWithValue("@nome", TX_NomeCategoria.Text)
@@ -88,7 +88,7 @@ Public Class FrmCadastroCategoria
             Try
                 Using conn As New MySqlConnection(connectionString)
                     conn.Open()
-                    Dim sql As String = "DELETE FROM categorias WHERE id = @id;"
+                    Dim sql As String = "DELETE FROM categoria WHERE id = @id;"
                     Dim cmd As New MySqlCommand(sql, conn)
                     cmd.Parameters.AddWithValue("@id", Convert.ToInt32(TX_idCategoria.Text))
                     cmd.ExecuteNonQuery()

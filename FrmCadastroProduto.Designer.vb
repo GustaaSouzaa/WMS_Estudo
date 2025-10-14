@@ -44,6 +44,8 @@ Partial Class FrmCadastroProduto
         Me.CB_modulo = New System.Windows.Forms.ComboBox()
         Me.LB_Rua = New System.Windows.Forms.Label()
         Me.CB_Rua = New System.Windows.Forms.ComboBox()
+        Me.LB_categoria = New System.Windows.Forms.Label()
+        Me.CB_Categoria = New System.Windows.Forms.ComboBox()
         Me.GB_Produto.SuspendLayout()
         CType(Me.DG_Produtos, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox1.SuspendLayout()
@@ -51,6 +53,8 @@ Partial Class FrmCadastroProduto
         '
         'GB_Produto
         '
+        Me.GB_Produto.Controls.Add(Me.CB_Categoria)
+        Me.GB_Produto.Controls.Add(Me.LB_categoria)
         Me.GB_Produto.Controls.Add(Me.TX_Preco)
         Me.GB_Produto.Controls.Add(Me.LB_Preço)
         Me.GB_Produto.Controls.Add(Me.TX_QTD)
@@ -61,14 +65,14 @@ Partial Class FrmCadastroProduto
         Me.GB_Produto.Controls.Add(Me.LB_Nome)
         Me.GB_Produto.Location = New System.Drawing.Point(10, 21)
         Me.GB_Produto.Name = "GB_Produto"
-        Me.GB_Produto.Size = New System.Drawing.Size(403, 77)
+        Me.GB_Produto.Size = New System.Drawing.Size(493, 77)
         Me.GB_Produto.TabIndex = 0
         Me.GB_Produto.TabStop = False
         Me.GB_Produto.Text = "Cadastro de Produto"
         '
         'TX_Preco
         '
-        Me.TX_Preco.Location = New System.Drawing.Point(170, 48)
+        Me.TX_Preco.Location = New System.Drawing.Point(170, 45)
         Me.TX_Preco.Name = "TX_Preco"
         Me.TX_Preco.Size = New System.Drawing.Size(60, 20)
         Me.TX_Preco.TabIndex = 7
@@ -280,6 +284,25 @@ Partial Class FrmCadastroProduto
         Me.CB_Rua.Size = New System.Drawing.Size(55, 21)
         Me.CB_Rua.TabIndex = 0
         '
+        'LB_categoria
+        '
+        Me.LB_categoria.AutoSize = True
+        Me.LB_categoria.ForeColor = System.Drawing.Color.DarkBlue
+        Me.LB_categoria.Location = New System.Drawing.Point(247, 48)
+        Me.LB_categoria.Name = "LB_categoria"
+        Me.LB_categoria.Size = New System.Drawing.Size(58, 13)
+        Me.LB_categoria.TabIndex = 8
+        Me.LB_categoria.Text = "Categoria: "
+        Me.LB_categoria.UseMnemonic = False
+        '
+        'CB_Categoria
+        '
+        Me.CB_Categoria.FormattingEnabled = True
+        Me.CB_Categoria.Location = New System.Drawing.Point(308, 43)
+        Me.CB_Categoria.Name = "CB_Categoria"
+        Me.CB_Categoria.Size = New System.Drawing.Size(121, 21)
+        Me.CB_Categoria.TabIndex = 9
+        '
         'FrmCadastroProduto
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -324,4 +347,6 @@ Partial Class FrmCadastroProduto
     Friend WithEvents CB_nivel As ComboBox
     Friend WithEvents LB_modulo As Label
     Friend WithEvents CB_modulo As ComboBox
+    Friend WithEvents CB_Categoria As ComboBox
+    Friend WithEvents LB_categoria As Label
 End Class

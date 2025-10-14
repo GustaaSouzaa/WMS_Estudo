@@ -7,6 +7,7 @@ Public Class FrmCadastroProduto
     Private Sub FrmCadastroProduto_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         CarregarProdutos()
         CarregarRuas()
+        CarregarCategorias()
     End Sub
 
     Private Sub CarregarRuas()
@@ -135,7 +136,22 @@ Public Class FrmCadastroProduto
     Private Sub CarregarProdutos()
         Try
             Using conn As New MySqlConnection(connectionString)
-                Dim sql As String = "SELECT ID, nome, quantidade, preco_custo, data_cadastro, endereco_id FROM produtos ORDER BY id;"
+                Dim sql As String = "
+                SELECT 
+                    p.id, 
+                    p.nome, 
+                    p.quantidade, 
+                    p.preco_custo, 
+                    c.nome AS nome_categoria,
+                    p.data_cadastro,
+                    p.endereco_id,
+                    p.categoria_id
+                FROM 
+                    produtos AS p
+                LEFT JOIN 
+                    categoria AS c ON p.categoria_id = c.id
+                ORDER BY 
+                    p.id;"
                 Dim da As New MySqlDataAdapter(sql, conn)
                 Dim dt As New DataTable()
                 da.Fill(dt)
@@ -179,22 +195,28 @@ Public Class FrmCadastroProduto
 
         Dim enderecoid As Integer? = ObterIdEndereco()
 
+
         If CB_apto.SelectedItem IsNot Nothing AndAlso Not enderecoid.HasValue Then
             MessageBox.Show("O endereço completo selecionado não foi encontrado no cadastro")
             Return
+        End If
+
+        Dim categoriaid As Integer? = Nothing
+        If CB_Categoria.SelectedValue IsNot Nothing AndAlso Not IsDBNull(CB_Categoria.SelectedValue) Then
+            categoriaId = Convert.ToInt32(CB_Categoria.SelectedValue)
         End If
         If String.IsNullOrEmpty(TX_ProdutoId.Text) Then
             Try
                 Using conn As New MySqlConnection(connectionString)
                     conn.Open()
-                    Dim sql As String = "INSERT INTO produtos (nome, quantidade, preco_custo, data_cadastro, endereco_id) VALUES (@nome, @quantidade, @preco_custo, @data_cadastro, @endereco_id);"
+                    Dim sql As String = "INSERT INTO produtos (nome, quantidade, preco_custo, data_cadastro, endereco_id, categoria_id) VALUES (@nome, @quantidade, @preco_custo, @data_cadastro, @endereco_id, @categoria_id);"
                     Dim cmd As New MySqlCommand(sql, conn)
                     cmd.Parameters.AddWithValue("@nome", TX_NomeProduto.Text)
                     cmd.Parameters.AddWithValue("@quantidade", Convert.ToInt32(TX_QTD.Text))
                     cmd.Parameters.AddWithValue("@preco_custo", Convert.ToDecimal(TX_Preco.Text))
                     cmd.Parameters.AddWithValue("@data_cadastro", DateTime.Now)
                     cmd.Parameters.AddWithValue("@endereco_id", If(enderecoid.HasValue, enderecoid.Value, DBNull.Value))
-
+                    cmd.Parameters.AddWithValue("@categoria_id", If(categoriaId.HasValue, categoriaId.Value, DBNull.Value))
                     cmd.ExecuteNonQuery()
                     MessageBox.Show("Produto cadastrado com sucesso!")
                     BT_Limpar_Click(Nothing, Nothing)
@@ -207,13 +229,14 @@ Public Class FrmCadastroProduto
             Try
                 Using conn As New MySqlConnection(connectionString)
                     conn.Open()
-                    Dim sql As String = "UPDATE produtos SET nome = @nome, quantidade = @quantidade, preco_custo = @preco_custo, endereco_id = @endereco_id WHERE id = @id;"
+                    Dim sql As String = "UPDATE produtos SET nome = @nome, quantidade = @quantidade, preco_custo = @preco_custo, endereco_id = @endereco_id, categoria_id = @categoria_id WHERE id = @id;"
                     Dim cmd As New MySqlCommand(sql, conn)
                     cmd.Parameters.AddWithValue("@id", Convert.ToInt32(TX_ProdutoId.Text))
                     cmd.Parameters.AddWithValue("@nome", TX_NomeProduto.Text)
                     cmd.Parameters.AddWithValue("@quantidade", Convert.ToInt32(TX_QTD.Text))
                     cmd.Parameters.AddWithValue("@preco_custo", Convert.ToDecimal(TX_Preco.Text))
                     cmd.Parameters.AddWithValue("@endereco_id", If(enderecoid.HasValue, enderecoid.Value, DBNull.Value))
+                    cmd.Parameters.AddWithValue("@categoria_id", If(categoriaId.HasValue, categoriaId.Value, DBNull.Value))
                     cmd.ExecuteNonQuery()
                     MessageBox.Show("Produto atualizado com sucesso!")
                     BT_Limpar_Click(Nothing, Nothing)
@@ -269,12 +292,19 @@ Public Class FrmCadastroProduto
             TX_QTD.Text = linhaSelecionada.Cells("quantidade").Value.ToString()
             TX_Preco.Text = linhaSelecionada.Cells("preco_custo").Value.ToString()
 
+
             If Not IsDBNull(linhaSelecionada.Cells("endereco_id").Value) Then
                 Dim idDoEndereco As Integer = Convert.ToInt32(linhaSelecionada.Cells("endereco_id").Value)
 
                 carregarEnderecoNosCombos(idDoEndereco)
             Else
                 BT_Limpar_Click(Nothing, Nothing)
+            End If
+
+            If Not IsDBNull(linhaSelecionada.Cells("categoria_id").Value) Then
+                CB_Categoria.SelectedValue = Convert.ToInt32(linhaSelecionada.Cells("categoria_id").Value)
+            Else
+                CB_Categoria.SelectedIndex = -1
             End If
         End If
     End Sub
@@ -364,4 +394,25 @@ Public Class FrmCadastroProduto
 
         Return Nothing
     End Function
+
+    Private Sub CarregarCategorias()
+        Try
+            Using conn As New MySqlConnection(connectionString)
+                Dim sql As String = "SELECT id, nome FROM categoria ORDER BY nome;"
+                Dim da As New MySqlDataAdapter(sql, conn)
+                Dim dt As New DataTable()
+
+                da.Fill(dt)
+
+                CB_Categoria.DataSource = dt
+                CB_Categoria.DisplayMember = "nome"
+                CB_Categoria.ValueMember = "id"
+                CB_Categoria.SelectedIndex = -1
+
+            End Using
+        Catch ex As Exception
+            MessageBox.Show("Falha ao carregar as categorias." & vbCrLf & "Erro: " & ex.Message, "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error)
+        End Try
+    End Sub
+
 End Class
