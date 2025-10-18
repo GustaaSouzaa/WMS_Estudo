@@ -27,15 +27,17 @@ Partial Class FrmPrincipal
         Me.ProdutosToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.EndereçosToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.CategoriaToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.MovimentaçõesToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.EntradaDeEstoqueToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.MenuStrip1.SuspendLayout()
         Me.SuspendLayout()
         '
         'MenuStrip1
         '
-        Me.MenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.CadastrosToolStripMenuItem})
+        Me.MenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.CadastrosToolStripMenuItem, Me.MovimentaçõesToolStripMenuItem})
         Me.MenuStrip1.Location = New System.Drawing.Point(0, 0)
         Me.MenuStrip1.Name = "MenuStrip1"
-        Me.MenuStrip1.Size = New System.Drawing.Size(800, 24)
+        Me.MenuStrip1.Size = New System.Drawing.Size(984, 24)
         Me.MenuStrip1.TabIndex = 1
         Me.MenuStrip1.Text = "MenuStrip1"
         '
@@ -49,31 +51,45 @@ Partial Class FrmPrincipal
         'ProdutosToolStripMenuItem
         '
         Me.ProdutosToolStripMenuItem.Name = "ProdutosToolStripMenuItem"
-        Me.ProdutosToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
+        Me.ProdutosToolStripMenuItem.Size = New System.Drawing.Size(128, 22)
         Me.ProdutosToolStripMenuItem.Text = "Produtos"
         '
         'EndereçosToolStripMenuItem
         '
         Me.EndereçosToolStripMenuItem.Name = "EndereçosToolStripMenuItem"
-        Me.EndereçosToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
+        Me.EndereçosToolStripMenuItem.Size = New System.Drawing.Size(128, 22)
         Me.EndereçosToolStripMenuItem.Text = "Endereços"
         '
         'CategoriaToolStripMenuItem
         '
         Me.CategoriaToolStripMenuItem.Name = "CategoriaToolStripMenuItem"
-        Me.CategoriaToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
+        Me.CategoriaToolStripMenuItem.Size = New System.Drawing.Size(128, 22)
         Me.CategoriaToolStripMenuItem.Text = "Categoria"
+        '
+        'MovimentaçõesToolStripMenuItem
+        '
+        Me.MovimentaçõesToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.EntradaDeEstoqueToolStripMenuItem})
+        Me.MovimentaçõesToolStripMenuItem.Name = "MovimentaçõesToolStripMenuItem"
+        Me.MovimentaçõesToolStripMenuItem.Size = New System.Drawing.Size(104, 20)
+        Me.MovimentaçõesToolStripMenuItem.Text = "Movimentações"
+        '
+        'EntradaDeEstoqueToolStripMenuItem
+        '
+        Me.EntradaDeEstoqueToolStripMenuItem.Name = "EntradaDeEstoqueToolStripMenuItem"
+        Me.EntradaDeEstoqueToolStripMenuItem.Size = New System.Drawing.Size(175, 22)
+        Me.EntradaDeEstoqueToolStripMenuItem.Text = "Entrada de Estoque"
         '
         'FrmPrincipal
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(800, 450)
+        Me.ClientSize = New System.Drawing.Size(984, 661)
         Me.Controls.Add(Me.MenuStrip1)
         Me.IsMdiContainer = True
         Me.MainMenuStrip = Me.MenuStrip1
         Me.Name = "FrmPrincipal"
         Me.Text = "WMS"
+        Me.WindowState = System.Windows.Forms.FormWindowState.Maximized
         Me.MenuStrip1.ResumeLayout(False)
         Me.MenuStrip1.PerformLayout()
         Me.ResumeLayout(False)
@@ -86,4 +102,6 @@ Partial Class FrmPrincipal
     Friend WithEvents ProdutosToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents EndereçosToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents CategoriaToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents MovimentaçõesToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents EntradaDeEstoqueToolStripMenuItem As ToolStripMenuItem
 End Class

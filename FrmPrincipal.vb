@@ -25,4 +25,12 @@
         AbrirFormularioFilho(Of FrmCadastroCategoria)()
 
     End Sub
+
+    Private Sub CadastrosToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles CadastrosToolStripMenuItem.Click
+
+    End Sub
+
+    Private Sub EntradaDeEstoqueToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles EntradaDeEstoqueToolStripMenuItem.Click
+        AbrirFormularioFilho(Of FrmEntradaEstoque)()
+    End Sub
 End Class
