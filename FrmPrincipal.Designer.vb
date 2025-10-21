@@ -29,6 +29,7 @@ Partial Class FrmPrincipal
         Me.CategoriaToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.MovimentaçõesToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.EntradaDeEstoqueToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.SaidaDeEstoqueToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.MenuStrip1.SuspendLayout()
         Me.SuspendLayout()
         '
@@ -68,7 +69,7 @@ Partial Class FrmPrincipal
         '
         'MovimentaçõesToolStripMenuItem
         '
-        Me.MovimentaçõesToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.EntradaDeEstoqueToolStripMenuItem})
+        Me.MovimentaçõesToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.EntradaDeEstoqueToolStripMenuItem, Me.SaidaDeEstoqueToolStripMenuItem})
         Me.MovimentaçõesToolStripMenuItem.Name = "MovimentaçõesToolStripMenuItem"
         Me.MovimentaçõesToolStripMenuItem.Size = New System.Drawing.Size(104, 20)
         Me.MovimentaçõesToolStripMenuItem.Text = "Movimentações"
@@ -76,8 +77,14 @@ Partial Class FrmPrincipal
         'EntradaDeEstoqueToolStripMenuItem
         '
         Me.EntradaDeEstoqueToolStripMenuItem.Name = "EntradaDeEstoqueToolStripMenuItem"
-        Me.EntradaDeEstoqueToolStripMenuItem.Size = New System.Drawing.Size(175, 22)
+        Me.EntradaDeEstoqueToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
         Me.EntradaDeEstoqueToolStripMenuItem.Text = "Entrada de Estoque"
+        '
+        'SaidaDeEstoqueToolStripMenuItem
+        '
+        Me.SaidaDeEstoqueToolStripMenuItem.Name = "SaidaDeEstoqueToolStripMenuItem"
+        Me.SaidaDeEstoqueToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
+        Me.SaidaDeEstoqueToolStripMenuItem.Text = "Saida de Estoque"
         '
         'FrmPrincipal
         '
@@ -104,4 +111,5 @@ Partial Class FrmPrincipal
     Friend WithEvents CategoriaToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents MovimentaçõesToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents EntradaDeEstoqueToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents SaidaDeEstoqueToolStripMenuItem As ToolStripMenuItem
 End Class

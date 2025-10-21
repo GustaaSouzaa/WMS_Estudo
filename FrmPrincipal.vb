@@ -33,4 +33,8 @@
     Private Sub EntradaDeEstoqueToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles EntradaDeEstoqueToolStripMenuItem.Click
         AbrirFormularioFilho(Of FrmEntradaEstoque)()
     End Sub
+
+    Private Sub SaidaDeEstoqueToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles SaidaDeEstoqueToolStripMenuItem.Click
+        AbrirFormularioFilho(Of FrmSaidaEstoque)()
+    End Sub
 End Class

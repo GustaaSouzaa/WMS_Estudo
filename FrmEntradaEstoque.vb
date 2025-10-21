@@ -147,4 +147,8 @@ Public Class FrmEntradaEstoque
     Private Sub LimparCamposEntrada()
 
     End Sub
+
+    Private Sub CB_Produto_SelectedIndexChanged(sender As Object, e As EventArgs) Handles CB_Produto.SelectedIndexChanged
+
+    End Sub
 End Class

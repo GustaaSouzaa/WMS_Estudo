@@ -156,6 +156,12 @@
     <Compile Include="FrmPrincipal.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="FrmSaidaEstoque.Designer.vb">
+      <DependentUpon>FrmSaidaEstoque.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FrmSaidaEstoque.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="My Project\AssemblyInfo.vb" />
     <Compile Include="My Project\Application.Designer.vb">
       <AutoGen>True</AutoGen>
@@ -188,6 +194,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FrmPrincipal.resx">
       <DependentUpon>FrmPrincipal.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmSaidaEstoque.resx">
+      <DependentUpon>FrmSaidaEstoque.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="My Project\Resources.resx">
       <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
