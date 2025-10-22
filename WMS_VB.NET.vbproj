@@ -125,6 +125,12 @@
     <Import Include="System.Threading.Tasks" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="FrmConsultaMovimentacoes.Designer.vb">
+      <DependentUpon>FrmConsultaMovimentacoes.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FrmConsultaMovimentacoes.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="FrmEntradaEstoque.Designer.vb">
       <DependentUpon>FrmEntradaEstoque.vb</DependentUpon>
     </Compile>
@@ -188,6 +194,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FrmCadEndereco.resx">
       <DependentUpon>FrmCadEndereco.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmConsultaMovimentacoes.resx">
+      <DependentUpon>FrmConsultaMovimentacoes.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmEntradaEstoque.resx">
       <DependentUpon>FrmEntradaEstoque.vb</DependentUpon>

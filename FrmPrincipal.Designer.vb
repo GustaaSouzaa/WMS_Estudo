@@ -30,12 +30,14 @@ Partial Class FrmPrincipal
         Me.MovimentaçõesToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.EntradaDeEstoqueToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.SaidaDeEstoqueToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ConsultaToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.HistóricoDeMovimentaçõesToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.MenuStrip1.SuspendLayout()
         Me.SuspendLayout()
         '
         'MenuStrip1
         '
-        Me.MenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.CadastrosToolStripMenuItem, Me.MovimentaçõesToolStripMenuItem})
+        Me.MenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.CadastrosToolStripMenuItem, Me.MovimentaçõesToolStripMenuItem, Me.ConsultaToolStripMenuItem})
         Me.MenuStrip1.Location = New System.Drawing.Point(0, 0)
         Me.MenuStrip1.Name = "MenuStrip1"
         Me.MenuStrip1.Size = New System.Drawing.Size(984, 24)
@@ -77,14 +79,27 @@ Partial Class FrmPrincipal
         'EntradaDeEstoqueToolStripMenuItem
         '
         Me.EntradaDeEstoqueToolStripMenuItem.Name = "EntradaDeEstoqueToolStripMenuItem"
-        Me.EntradaDeEstoqueToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
+        Me.EntradaDeEstoqueToolStripMenuItem.Size = New System.Drawing.Size(175, 22)
         Me.EntradaDeEstoqueToolStripMenuItem.Text = "Entrada de Estoque"
         '
         'SaidaDeEstoqueToolStripMenuItem
         '
         Me.SaidaDeEstoqueToolStripMenuItem.Name = "SaidaDeEstoqueToolStripMenuItem"
-        Me.SaidaDeEstoqueToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
+        Me.SaidaDeEstoqueToolStripMenuItem.Size = New System.Drawing.Size(175, 22)
         Me.SaidaDeEstoqueToolStripMenuItem.Text = "Saida de Estoque"
+        '
+        'ConsultaToolStripMenuItem
+        '
+        Me.ConsultaToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.HistóricoDeMovimentaçõesToolStripMenuItem})
+        Me.ConsultaToolStripMenuItem.Name = "ConsultaToolStripMenuItem"
+        Me.ConsultaToolStripMenuItem.Size = New System.Drawing.Size(66, 20)
+        Me.ConsultaToolStripMenuItem.Text = "Consulta"
+        '
+        'HistóricoDeMovimentaçõesToolStripMenuItem
+        '
+        Me.HistóricoDeMovimentaçõesToolStripMenuItem.Name = "HistóricoDeMovimentaçõesToolStripMenuItem"
+        Me.HistóricoDeMovimentaçõesToolStripMenuItem.Size = New System.Drawing.Size(226, 22)
+        Me.HistóricoDeMovimentaçõesToolStripMenuItem.Text = "Histórico de Movimentações"
         '
         'FrmPrincipal
         '
@@ -112,4 +127,6 @@ Partial Class FrmPrincipal
     Friend WithEvents MovimentaçõesToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents EntradaDeEstoqueToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents SaidaDeEstoqueToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents ConsultaToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents HistóricoDeMovimentaçõesToolStripMenuItem As ToolStripMenuItem
 End Class
